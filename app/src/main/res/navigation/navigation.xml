@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navigation"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/userList"
+    tools:ignore="UnusedNavigation"
+
+    >
+
+    <fragment
+        android:id="@+id/userList"
+        android:name="com.ab.exomind.ui.views.listUsers.view.userFragment"
+        android:label="Users"
+        tools:layout="@layout/fragment_user_list" >
+
+
+
+    </fragment>
+
+</navigation>

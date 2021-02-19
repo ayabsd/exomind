@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ab.exomind.ui.views.listUsers.viewModel.UserViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@android:color/white"
+        android:elevation="2dp"
+        app:cardCornerRadius="5dp"
+        app:contentPadding="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                app:mutableText="@{viewModel.getPseudo()}" />
+
+            <TextView
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                app:mutableText="@{viewModel.getName()}" />
+
+
+            <TextView
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                app:mutableText="@{viewModel.getPhone()}" />
+
+            <TextView
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                app:mutableText="@{viewModel.getEmail()}" />
+
+
+            <TextView
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                app:mutableText="@{viewModel.getSite()}" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
