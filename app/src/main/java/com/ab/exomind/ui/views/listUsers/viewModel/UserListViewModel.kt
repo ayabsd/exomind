@@ -28,23 +28,10 @@ class UserListViewModel(private val userDao: UserDAO):BaseViewModel() {
     val errorMessage: MutableLiveData<Int> = MutableLiveData()
     val errorClickListener = View.OnClickListener { loadUsers() }
     private lateinit var subscription: Disposable
-
     val isLoading = ObservableBoolean()
 
-    fun onRefresh() {
-        isLoading.set(true)
-        //loadPhotos()
-    }
-
-    private fun onReady() = isLoading.set(false)
 
 
-  /*  private val listener = object: AlbumListAdapter.OnAlbumClickListener {
-        override fun onCustomItemClicked(album: Album , view : View) {
-            Navigation.findNavController(view).navigate(AlbumListFragmentDirections
-                .actionAlbumFragmentToPhotoFragment(album))
-        }
-    }*/
     init {
         loadUsers()
     }
@@ -95,5 +82,9 @@ class UserListViewModel(private val userDao: UserDAO):BaseViewModel() {
         errorMessage.value = R.string.user_error_retrieve
     }
 
+    fun resetList(filterStr : String?) {
+        userListAdapter.filter.filter(filterStr)
+
+    }
 
 }

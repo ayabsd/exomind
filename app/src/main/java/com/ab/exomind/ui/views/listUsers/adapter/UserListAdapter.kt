@@ -2,19 +2,25 @@ package com.ab.exomind.ui.views.listUsers.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ab.exomind.R
 import com.ab.exomind.databinding.UserItemBinding
 import com.ab.exomind.model.User
 import com.ab.exomind.ui.views.listUsers.viewModel.UserViewModel
+import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Created by Aya Boussaadia on 19,February,2021
  */
 
-class UserListAdapter : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
+class UserListAdapter : RecyclerView.Adapter<UserListAdapter.ViewHolder>(), Filterable {
     private lateinit var allUsers: List<User>
+    var userFilterList = ArrayList<User>()
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: UserItemBinding = DataBindingUtil.inflate(
@@ -27,17 +33,52 @@ class UserListAdapter : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(allUsers[position])
+        holder.bind(userFilterList[position])
 
     }
+     override fun getFilter(): Filter {
+         userFilterList.clear()
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charSearch = constraint.toString()
+                if (charSearch.isEmpty()) {
+                    userFilterList.addAll(allUsers)
+                } else {
+                    val resultList = ArrayList<User>()
+                    for (row in allUsers) {
+                        if (row.username.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(
+                                Locale.ROOT
+                            )
+                            )
+                        ) {
+                            resultList.add(row)
+                        }
+                    }
+                    userFilterList = resultList
+                }
+                val filterResults = FilterResults()
+                filterResults.values = userFilterList
+                return filterResults
+            }
 
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                if (results?.values!= null) {
+                userFilterList = results?.values as ArrayList<User>
+                notifyDataSetChanged()
+                }
+            }
+
+        }
+    }
     override fun getItemCount(): Int {
-        return if (::allUsers.isInitialized) allUsers.size else 0
+        return userFilterList.size
     }
 
     fun updateAlbumList(users: List<User>) {
         this.allUsers = users
+        userFilterList.addAll(users)
         notifyDataSetChanged()
+
     }
 
 
