@@ -5,7 +5,7 @@
 - Retrieve album pictures from: https://jsonplaceholder.typicode.com/users/1/photos?albumId={albumID}.
 
 The app has following packages:
-- injection:  Manipulating components.
+- Injection:  Manipulating components.
 - Local: Local database and DAO .
 - Model: Pojo .
 - Network: Api service .
