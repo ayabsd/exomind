@@ -1,8 +1,8 @@
 # EXOMIND
 ## Technical Exercice
-Retrive user list from: https://jsonplaceholder.typicode.com/users
-Retrieve user Album from: https://jsonplaceholder.typicode.com/users/1/albums?userId={userID} ,
-Retrieve album pictures from: https://jsonplaceholder.typicode.com/users/1/photos?albumId={albumID}.
+- Retrive user list from: https://jsonplaceholder.typicode.com/users
+- Retrieve user Album from: https://jsonplaceholder.typicode.com/users/1/albums?userId={userID} ,
+- Retrieve album pictures from: https://jsonplaceholder.typicode.com/users/1/photos?albumId={albumID}.
 
 The app has following packages:
 - injection:  Manipulating components.
