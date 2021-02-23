@@ -27,4 +27,6 @@ Library reference resources::
 
 The MVVM pattern is a pattern derived from the MVP pattern defined by Martin Fowler in the 1990s. The MVVM (Model-View-ViewModel) pattern helps to completely separate the business and presentation logic from the UI, and the business logic and UI can be clearly separated for easier testing and easier maintenance. Let’s take a look at View, ViewModel and Model.
 
+![Screenshot_20210223_163423_com ab exomind](https://user-images.githubusercontent.com/10687584/108867718-c35cac80-75f5-11eb-968b-b9c0fed7f565.jpg)
+
  
