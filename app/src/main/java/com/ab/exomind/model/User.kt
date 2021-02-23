@@ -10,7 +10,7 @@ import kotlinx.android.parcel.Parcelize
  */
 @Parcelize
 @Entity(tableName = "users")
-data class User (
+data class User(
     @field:PrimaryKey
 
     val id: String,
@@ -20,4 +20,4 @@ data class User (
     val phone: String,
     val website: String,
 
-) : Parcelable
+    ) : Parcelable

@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import com.ab.exomind.injection.component.DaggerViewModelInjector
 import com.ab.exomind.injection.component.ViewModelInjector
 import com.ab.exomind.injection.module.NetworkModule
+import com.ab.exomind.ui.views.albumByUser.viewmodel.AlbumListByUserViewModel
+import com.ab.exomind.ui.views.albumByUser.viewmodel.AlbumViewModel
 import com.ab.exomind.ui.views.listUsers.viewModel.UserListViewModel
 import com.ab.exomind.ui.views.listUsers.viewModel.UserViewModel
 
@@ -26,6 +28,10 @@ abstract class BaseViewModel : ViewModel() {
         when (this) {
             is UserListViewModel -> injector.inject(this)
             is UserViewModel -> injector.inject(this)
+            is AlbumListByUserViewModel -> injector.inject(this)
+            is AlbumViewModel -> injector.inject(this)
+
+
         }
     }
 }

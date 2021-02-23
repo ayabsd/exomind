@@ -84,4 +84,21 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
 
+    // Instrumented Unit Tests
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:2.12.1"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.2.1"
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation "com.google.truth:truth:1.0.1"
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0-alpha02'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.2-alpha02'
+    androidTestImplementation 'androidx.test:runner:1.1.2-alpha02'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
+
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.0'
+
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/navigation"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
     app:startDestination="@id/userList"
     tools:ignore="UnusedNavigation"
 
@@ -12,10 +12,28 @@
         android:id="@+id/userList"
         android:name="com.ab.exomind.ui.views.listUsers.view.userFragment"
         android:label="Users"
-        tools:layout="@layout/fragment_user_list" >
+        tools:layout="@layout/fragment_user_list">
 
+        <action
+            android:id="@+id/action_userListFragment_to_albumListFragment"
+            app:destination="@+id/albumByUser" />
 
 
     </fragment>
+
+
+    <fragment
+        android:id="@+id/albumByUser"
+        android:name="com.ab.exomind.ui.views.albumByUser.view.AlbumListByUserFragment"
+        android:label="Pictures"
+        tools:layout="@layout/fragment_album_list_by_user">
+
+        <argument
+            android:name="arg_from_user_fragment"
+            app:argType="com.ab.exomind.model.User" />
+
+
+    </fragment>
+
 
 </navigation>

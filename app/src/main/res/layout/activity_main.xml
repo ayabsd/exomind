@@ -8,9 +8,9 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:background="@color/colorPrimaryDark"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -24,6 +24,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/navigation"
-        />
+        app:navGraph="@navigation/navigation" />
 </LinearLayout>

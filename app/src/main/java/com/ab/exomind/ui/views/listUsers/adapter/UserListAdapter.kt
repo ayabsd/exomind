@@ -1,6 +1,7 @@
 package com.ab.exomind.ui.views.listUsers.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
@@ -18,6 +19,13 @@ import kotlin.collections.ArrayList
  */
 
 class UserListAdapter : RecyclerView.Adapter<UserListAdapter.ViewHolder>(), Filterable {
+    private lateinit var listener: OnUserClickListener
+
+
+    interface OnUserClickListener {
+        fun onUserClicked(user: User, view: View)
+    }
+
     private lateinit var allUsers: List<User>
     var userFilterList = ArrayList<User>()
 
@@ -34,10 +42,14 @@ class UserListAdapter : RecyclerView.Adapter<UserListAdapter.ViewHolder>(), Filt
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(userFilterList[position])
+        holder.itemView.setOnClickListener {
+            listener.onUserClicked(userFilterList[position], holder.itemView)
+        }
 
     }
-     override fun getFilter(): Filter {
-         userFilterList.clear()
+
+    override fun getFilter(): Filter {
+        userFilterList.clear()
         return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charSearch = constraint.toString()
@@ -46,9 +58,10 @@ class UserListAdapter : RecyclerView.Adapter<UserListAdapter.ViewHolder>(), Filt
                 } else {
                     val resultList = ArrayList<User>()
                     for (row in allUsers) {
-                        if (row.username.toLowerCase(Locale.ROOT).contains(charSearch.toLowerCase(
-                                Locale.ROOT
-                            )
+                        if (row.username.toLowerCase(Locale.ROOT).contains(
+                                charSearch.toLowerCase(
+                                    Locale.ROOT
+                                )
                             )
                         ) {
                             resultList.add(row)
@@ -62,16 +75,21 @@ class UserListAdapter : RecyclerView.Adapter<UserListAdapter.ViewHolder>(), Filt
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                if (results?.values!= null) {
-                userFilterList = results?.values as ArrayList<User>
-                notifyDataSetChanged()
+                if (results?.values != null) {
+                    userFilterList = results?.values as ArrayList<User>
+                    notifyDataSetChanged()
                 }
             }
 
         }
     }
+
     override fun getItemCount(): Int {
         return userFilterList.size
+    }
+
+    fun setListener(listener: UserListAdapter.OnUserClickListener) {
+        this.listener = listener
     }
 
     fun updateAlbumList(users: List<User>) {

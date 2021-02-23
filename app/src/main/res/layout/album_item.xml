@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ab.exomind.ui.views.albumByUser.viewmodel.AlbumViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@android:color/white"
+        app:cardCornerRadius="5dp"
+        app:contentPadding="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:mutableText="@{viewModel.getAlbumId()}" />
+
+            <TextView
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:mutableText="@{viewModel.getAlbumTitle()}" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
