@@ -5,7 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
 import com.ab.exomind.local.AppDatabase
-import com.ab.exomind.ui.views.albumByUser.viewmodel.AlbumListByUserViewModel
+import com.ab.exomind.ui.views.listAlbum.viewmodel.AlbumListByUserViewModel
+import com.ab.exomind.ui.views.listPhotos.viewmodel.ListPhotoViewModel
 import com.ab.exomind.ui.views.listUsers.viewModel.UserListViewModel
 
 /**
@@ -24,6 +25,10 @@ class ViewModelFactory(private val activity: AppCompatActivity) : ViewModelProvi
         } else if (modelClass.isAssignableFrom(AlbumListByUserViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return AlbumListByUserViewModel(db.postDao()) as T
+        }
+        else {
+            @Suppress("UNCHECKED_CAST")
+            return ListPhotoViewModel(db.postDao()) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

@@ -1,4 +1,4 @@
-package com.ab.exomind.ui.views.albumByUser.viewmodel
+package com.ab.exomind.ui.views.listAlbum.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.ab.exomind.model.Album

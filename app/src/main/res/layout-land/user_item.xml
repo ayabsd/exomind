@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewModel"
-            type="com.ab.exomind.ui.views.listAlbum.viewmodel.AlbumViewModel" />
+            type="com.ab.exomind.ui.views.listUsers.viewModel.UserViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -32,14 +33,33 @@
                 style="@style/Base.TextAppearance.AppCompat.Headline"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                app:mutableText="@{viewModel.getAlbumId()}" />
+                app:mutableText="@{viewModel.getPseudo()}" />
 
             <TextView
                 style="@style/Base.TextAppearance.AppCompat.Headline"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                app:mutableText="@{viewModel.getAlbumTitle()}" />
+                app:mutableText="@{viewModel.getName()}" />
 
+
+            <TextView
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:mutableText="@{viewModel.getPhone()}" />
+
+            <TextView
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:mutableText="@{viewModel.getEmail()}" />
+
+
+            <TextView
+                style="@style/Base.TextAppearance.AppCompat.Headline"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:mutableText="@{viewModel.getSite()}" />
 
         </LinearLayout>
 

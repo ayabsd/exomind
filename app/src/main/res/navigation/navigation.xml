@@ -10,7 +10,7 @@
 
     <fragment
         android:id="@+id/userList"
-        android:name="com.ab.exomind.ui.views.listUsers.view.userFragment"
+        android:name="com.ab.exomind.ui.views.listUsers.view.UserFragment"
         android:label="Users"
         tools:layout="@layout/fragment_user_list">
 
@@ -24,14 +24,32 @@
 
     <fragment
         android:id="@+id/albumByUser"
-        android:name="com.ab.exomind.ui.views.albumByUser.view.AlbumListByUserFragment"
-        android:label="Pictures"
+        android:name="com.ab.exomind.ui.views.listAlbum.view.AlbumListByUserFragment"
+        android:label="Albums"
         tools:layout="@layout/fragment_album_list_by_user">
+
+        <action
+            android:id="@+id/action_albumListFragment_to_photoListFragment"
+            app:destination="@+id/photoByAlbum" />
+
 
         <argument
             android:name="arg_from_user_fragment"
             app:argType="com.ab.exomind.model.User" />
 
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/photoByAlbum"
+        android:name="com.ab.exomind.ui.views.listPhotos.view.ListPhotoFragment"
+        android:label="Pictures"
+        tools:layout="@layout/fragment_list_photo">
+
+        <argument
+            android:name="arg_from_album_fragment"
+            app:argType="com.ab.exomind.model.Album" />
 
     </fragment>
 

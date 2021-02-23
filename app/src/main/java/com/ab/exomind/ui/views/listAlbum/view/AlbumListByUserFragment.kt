@@ -1,4 +1,4 @@
-package com.ab.exomind.ui.views.listUsers.view
+package com.ab.exomind.ui.views.listAlbum.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,22 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ab.exomind.R
-import com.ab.exomind.databinding.FragmentUserListBinding
+import com.ab.exomind.databinding.FragmentAlbumListByUserBinding
+import com.ab.exomind.model.User
+import com.ab.exomind.ui.views.listAlbum.viewmodel.AlbumListByUserViewModel
 import com.ab.exomind.ui.views.factory.ViewModelFactory
-import com.ab.exomind.ui.views.listUsers.viewModel.UserListViewModel
 import com.google.android.material.snackbar.Snackbar
 
 
-class UserFragment : Fragment() {
+class AlbumListByUserFragment : Fragment() {
     private var errorSnackbar: Snackbar? = null
-    private lateinit var binding: FragmentUserListBinding
-    private lateinit var viewModel: UserListViewModel
+    private lateinit var binding: FragmentAlbumListByUserBinding
+    private lateinit var viewModel: AlbumListByUserViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,49 +29,30 @@ class UserFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_user_list,
+            R.layout.fragment_album_list_by_user,
             container,
             false
         )
 
         viewModel = ViewModelProviders.of(this, ViewModelFactory(activity as AppCompatActivity))
-            .get(UserListViewModel::class.java)
-
-        binding.viewModel = viewModel
+            .get(AlbumListByUserViewModel::class.java)
+        binding.albumByUserViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        getDataFromUserListFragment()
 
         viewModel.errorMessage.observe(viewLifecycleOwner, { errorMessage ->
             if (errorMessage != null) showError(errorMessage)
             else hideError()
         })
 
-        binding.userList.layoutManager = LinearLayoutManager(activity)
-        search(binding.userSearch)
+        binding.albumList.layoutManager = LinearLayoutManager(activity)
 
         return binding.root
     }
 
 
-    private fun search(searchView: SearchView) {
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                viewModel.resetList(filterStr = newText)
-
-                return false
-            }
-
-        })
-
-
-    }
-
     private fun showError(@StringRes errorMessage: Int) {
         errorSnackbar = Snackbar.make(binding.root, errorMessage, Snackbar.LENGTH_INDEFINITE)
-        errorSnackbar?.setAction("Retry", viewModel.errorClickListener)
         errorSnackbar?.show()
     }
 
@@ -79,5 +60,16 @@ class UserFragment : Fragment() {
         errorSnackbar?.dismiss()
     }
 
+
+    private fun getDataFromUserListFragment() {
+        val user: User? =
+            AlbumListByUserFragmentArgs.fromBundle(requireArguments()).argFromUserFragment
+
+        if (user != null) {
+            viewModel.loadAlbums(user.id)
+        }
+
+
+    }
 
 }

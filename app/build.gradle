@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.ab.exomind"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -98,7 +98,6 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.1.2-alpha02'
     androidTestImplementation 'androidx.test:runner:1.1.2-alpha02'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
-
     implementation 'com.squareup.retrofit2:converter-gson:2.0.0'
 
 }

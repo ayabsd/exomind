@@ -1,8 +1,10 @@
 package com.ab.exomind.injection.component
 
 import com.ab.exomind.injection.module.NetworkModule
-import com.ab.exomind.ui.views.albumByUser.viewmodel.AlbumListByUserViewModel
-import com.ab.exomind.ui.views.albumByUser.viewmodel.AlbumViewModel
+import com.ab.exomind.ui.views.listAlbum.viewmodel.AlbumListByUserViewModel
+import com.ab.exomind.ui.views.listAlbum.viewmodel.AlbumViewModel
+import com.ab.exomind.ui.views.listPhotos.viewmodel.ListPhotoViewModel
+import com.ab.exomind.ui.views.listPhotos.viewmodel.PhotoViewModel
 import com.ab.exomind.ui.views.listUsers.viewModel.UserListViewModel
 import com.ab.exomind.ui.views.listUsers.viewModel.UserViewModel
 import dagger.Component
@@ -19,6 +21,9 @@ interface ViewModelInjector {
     fun inject(userViewModel: UserViewModel)
     fun inject(albumListByUserViewModel: AlbumListByUserViewModel)
     fun inject(albumViewModel: AlbumViewModel)
+    fun inject(photoViewModel:PhotoViewModel)
+    fun inject(photolistViewModel: ListPhotoViewModel)
+
 
 
     @Component.Builder

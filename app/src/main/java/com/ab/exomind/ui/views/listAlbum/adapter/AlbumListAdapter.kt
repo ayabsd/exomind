@@ -1,4 +1,4 @@
-package com.ab.exomind.ui.views.albumByUser.adapter
+package com.ab.exomind.ui.views.listAlbum.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ab.exomind.R
 import com.ab.exomind.databinding.AlbumItemBinding
 import com.ab.exomind.model.Album
-import com.ab.exomind.ui.views.albumByUser.viewmodel.AlbumViewModel
+import com.ab.exomind.ui.views.listAlbum.viewmodel.AlbumViewModel
+import com.ab.exomind.ui.views.listUsers.adapter.UserListAdapter
 
 /**
  * Created by Aya Boussaadia on 22,February,2021
@@ -51,6 +52,9 @@ class AlbumListAdapter : RecyclerView.Adapter<AlbumListAdapter.ViewHolder>() {
 
     }
 
+    fun setListener(listener: AlbumListAdapter.OnAlbumClickListener) {
+        this.listener = listener
+    }
 
     class ViewHolder(private val binding: AlbumItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
