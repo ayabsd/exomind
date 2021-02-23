@@ -2,17 +2,12 @@ package com.ab.exomind.ui.views.listPhotos.viewmodel
 
 import android.view.View
 import androidx.lifecycle.MutableLiveData
-import androidx.navigation.Navigation
 import com.ab.exomind.R
 import com.ab.exomind.local.UserDAO
-import com.ab.exomind.model.Album
 import com.ab.exomind.model.Photo
-import com.ab.exomind.model.User
 import com.ab.exomind.network.ApiService
 import com.ab.exomind.ui.views.base.BaseViewModel
 import com.ab.exomind.ui.views.listPhotos.adapter.PhotoListAdapter
-import com.ab.exomind.ui.views.listUsers.adapter.UserListAdapter
-import com.ab.exomind.ui.views.listUsers.view.UserFragmentDirections
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable

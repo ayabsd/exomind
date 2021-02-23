@@ -9,7 +9,6 @@ import com.ab.exomind.R
 import com.ab.exomind.databinding.AlbumItemBinding
 import com.ab.exomind.model.Album
 import com.ab.exomind.ui.views.listAlbum.viewmodel.AlbumViewModel
-import com.ab.exomind.ui.views.listUsers.adapter.UserListAdapter
 
 /**
  * Created by Aya Boussaadia on 22,February,2021

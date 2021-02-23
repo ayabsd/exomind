@@ -6,12 +6,10 @@ import androidx.navigation.Navigation
 import com.ab.exomind.R
 import com.ab.exomind.local.UserDAO
 import com.ab.exomind.model.Album
-import com.ab.exomind.model.User
 import com.ab.exomind.network.ApiService
-import com.ab.exomind.ui.views.listAlbum.adapter.AlbumListAdapter
 import com.ab.exomind.ui.views.base.BaseViewModel
+import com.ab.exomind.ui.views.listAlbum.adapter.AlbumListAdapter
 import com.ab.exomind.ui.views.listAlbum.view.AlbumListByUserFragmentDirections
-import com.ab.exomind.ui.views.listUsers.adapter.UserListAdapter
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable

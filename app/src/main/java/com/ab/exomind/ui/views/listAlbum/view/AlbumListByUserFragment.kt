@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.ab.exomind.R
 import com.ab.exomind.databinding.FragmentAlbumListByUserBinding
 import com.ab.exomind.model.User
-import com.ab.exomind.ui.views.listAlbum.viewmodel.AlbumListByUserViewModel
 import com.ab.exomind.ui.views.factory.ViewModelFactory
+import com.ab.exomind.ui.views.listAlbum.viewmodel.AlbumListByUserViewModel
 import com.google.android.material.snackbar.Snackbar
 
 
