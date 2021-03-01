@@ -26,7 +26,6 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:contentDescription="@null"
                 bind:imageUrl="@{viewModelPhoto.getPhoto()}"
                 app:layout_constraintTop_toTopOf="parent" />
 

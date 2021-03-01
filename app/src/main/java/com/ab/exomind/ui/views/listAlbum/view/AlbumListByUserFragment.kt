@@ -71,5 +71,7 @@ class AlbumListByUserFragment : Fragment() {
 
 
     }
-
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }

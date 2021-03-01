@@ -44,7 +44,7 @@ class AlbumListByUserViewModel(private val userDao: UserDAO) : BaseViewModel() {
     }
 
 
-    public fun loadAlbums(id: String) {
+     fun loadAlbums(id: String) {
         subscription = Observable.fromCallable {
             userDao.getUserAlbums(id)
         }

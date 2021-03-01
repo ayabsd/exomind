@@ -97,4 +97,9 @@ class UserListViewModel(private val userDao: UserDAO) : BaseViewModel() {
 
     }
 
+     fun onDesstroy() {
+
+    }
+
+
 }

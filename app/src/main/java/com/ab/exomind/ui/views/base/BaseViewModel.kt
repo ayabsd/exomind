@@ -35,9 +35,6 @@ abstract class BaseViewModel : ViewModel() {
             is ListPhotoViewModel -> injector.inject(this)
             is PhotoViewModel -> injector.inject(this)
 
-
-
-
         }
     }
 }
